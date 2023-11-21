@@ -5,7 +5,7 @@ import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-export async function GetStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:
   const postData = await getPostData(params.id);
 
@@ -16,7 +16,7 @@ export async function GetStaticProps({ params }) {
   };
 }
 
-export async function GetStaticPaths() {
+export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
@@ -26,7 +26,7 @@ export async function GetStaticPaths() {
 
 export default function Post({ postData }) {
   return (
-    <Layout home={undefined}>
+    <Layout home>
       <Head>
         <title>{postData.title}</title>
       </Head>
