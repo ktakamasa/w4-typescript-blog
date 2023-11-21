@@ -14,7 +14,7 @@ export async function getStaticProps({ params }) {
       postData,
     },
   };
-}
+} satisfies GetStaticProps;
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+}satisfies GetStaticPaths;
 
 export default function Post({ postData }) {
   return (
